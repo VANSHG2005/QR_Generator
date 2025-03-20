@@ -1,92 +1,103 @@
-:root{
-    --bcg-color: #001122;
-    --primary-color: #155e75;
-    --border-radius: 8px;
-    --secondary-color: #fff;
-    --border-color: #7fb7c9;
-}
-*{
+:root {
+    --bcg-color: #0f172a;
+    --primary-color: rgba(255, 255, 255, 0.15);
+    --border-radius: 12px;
+    --secondary-color: #ffffff;
+    --border-color: rgba(255, 255, 255, 0.3);
+    --btn-color: #4f46e5;
+    --btn-hover-color: #4338ca;
+    --input-bg: rgba(255, 255, 255, 0.1);
+}   
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
-body{
+body {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--bcg-color);
+    background: var(--bcg-color);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
-.box{
-    background-color: var(--primary-color);
+.box {
+    background: var(--primary-color);
     padding: 30px;
-    width: 400px;
+    width: 420px;
     border-radius: var(--border-radius);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
 }
 
-.qr-header h1{
-    font-size: 26px;
+.qr-header h1 {
+    font-size: 24px;
     text-align: center;
     color: var(--secondary-color);
-    margin-bottom: 24px;
+    margin-bottom: 16px;
     text-transform: uppercase;
 }
 
-.qr-header input{
+.qr-header input, .qr-header select, .qr-header input[type="color"] {
     width: 100%;
-    margin-block: 12px;
-}
-
-.qr-header input, select{
-    padding: 8px;
+    padding: 10px;
+    margin: 10px 0;
     border-radius: var(--border-radius);
-    font-size: 18px;
+    font-size: 16px;
     outline: none;
     border: 2px solid var(--border-color);
-}
-
-.qr-header label{
+    background: var(--input-bg);
     color: var(--secondary-color);
-    font-size: 20px;
 }
 
-.qr-header div{
-    display: flex;
-    justify-content: space-between;
+.qr-header input[type="color"] {
+    height: 50px;
+    cursor: pointer;
+    border: none;
+    padding: 5px;
+    background: var(--input-bg);
+    border-radius: var(--border-radius);
 }
 
-.qr-footer{
+.qr-header select {
+    cursor: pointer;
+}
+
+.qr-header label {
+    color: var(--secondary-color);
+    font-size: 18px;
+    display: block;
+    margin-top: 10px;
+}
+
+.qr-footer {
     display: flex;
     justify-content: center;
+    margin-top: 20px;
 }
-.qr-footer a{
-    background-color: var(--secondary-color);
+
+.qr-footer a {
+    background-color: var(--btn-color);
     text-decoration: none;
-    font-size: 20px;
-    padding: 14px 36px;
-    margin-inline: 2px;
-    color: var(--primary-color);
+    font-size: 18px;
+    padding: 12px 24px;
+    margin-inline: 4px;
+    color: var(--secondary-color);
     font-weight: 600;
     border-radius: var(--border-radius);
+    transition: 0.3s ease-in-out;
 }
 
-.qr-body{
-    display: grid;
-    place-items: center;
-    padding:20px;
-}
-
-.qr-body img{
-    max-width: 100%;
-    max-height: 100%;
-    margin-block: 10px;
-    padding: 20px;
-    border: 0.5px solid var(--border-color);
-    border-radius: var(--border-radius);
+.qr-footer a:hover {
+    background-color: var(--btn-hover-color);
+    transform: scale(1.05);
 }
 
 .qr-body {
@@ -94,23 +105,38 @@ body{
     justify-content: center;
     align-items: center;
     padding: 20px;
-    overflow: hidden; /* Prevent overflow */
 }
 
 .qr-body canvas {
     max-width: 100%;
     height: auto;
-    border: 10px solid white; /* White border for QR */
+    padding: 10px;
+    background: white;
     border-radius: var(--border-radius);
 }
 
-
-@media screen and (max-width:520px){
-    .box{
-        width: 80%;
+@media screen and (max-width: 520px) {
+    .box {
+        width: 90%;
     }
-    .qr-footer a{
-        padding: 12px;
+    .qr-footer a {
+        padding: 10px;
         font-size: 16px;
     }
+}
+
+select {
+    position: relative;
+    z-index: 10;
+}
+
+select:focus {
+    overflow: visible;
+}
+
+select option {
+    background: #1e293b;
+    color: #fff;
+    padding: 10px;
+    border-radius: 6px;
 }
